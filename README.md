@@ -52,8 +52,8 @@ ADLS silver/{dataset}                    (Delta, overwrite)  -> databrick_projec
     <th align="center">Task Timeline Architecture</th>
   </tr>
   <tr>
-    <td align="center"><img src="images/task_graph.png" width="300" alt="Task Graph"></td>
-    <td align="center"><img src="images/task_timeline.png" width="300" alt="Task Timeline"></td>
+    <td align="center"><img src="images/task_graph.PNG" width="300" alt="Task Graph"></td>
+    <td align="center"><img src="images/task_timeline.PNG" width="300" alt="Task Timeline"></td>
   </tr>
 </table>
 
@@ -152,7 +152,7 @@ The extra snapshot table exists because expectations aren't supported on a snaps
     <th align="center">ADLS Containers</th>
   </tr>
   <tr>
-    <td align="center"><img src="images/adls_containers.png" width="400" alt="ADLS Containers"></td>
+    <td align="center"><img src="images/adls_containers.PNG" width="400" alt="ADLS Containers"></td>
   </tr>
 </table>
 
@@ -162,8 +162,8 @@ The extra snapshot table exists because expectations aren't supported on a snaps
     <th align="center">Silver Schema</th>
   </tr>
   <tr>
-    <td align="center"><img src="images/catalog_1.png" width="300" alt="Bronze and Gold Schemas"></td>
-    <td align="center"><img src="images/catalog_2.png" width="300" alt="Silver Schema"></td>
+    <td align="center"><img src="images/catalog_1.PNG" width="300" alt="Bronze and Gold Schemas"></td>
+    <td align="center"><img src="images/catalog_2.PNG" width="300" alt="Silver Schema"></td>
   </tr>
 </table>
 
