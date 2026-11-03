@@ -1,0 +1,53 @@
+<mxfile host="Electron">
+  <diagram id="eV1iYm0ZkiQ34a3mSiOm" name="Page-1">
+    <mxGraphModel dx="1290" dy="873" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="src" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Source (ADLS)&#xa;Parquet Files" vertex="1">
+          <mxGeometry height="80" width="130" x="103" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="brz" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#cd853f;strokeColor=#8b4513;fontColor=#ffffff;" value="Bronze&#xa;Raw / Append&#xa;Auto Loader" vertex="1">
+          <mxGeometry height="60" width="140" x="98" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="slv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#c0c0c0;strokeColor=#696969;fontColor=#ffffff;" value="Silver&#xa;Cleaned / Enriched&#xa;Delta (Overwrite)" vertex="1">
+          <mxGeometry height="60" width="140" x="98" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="gld1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffd700;strokeColor=#b8860b;fontColor=#000000;arcSize=50;" value="Gold - DimCustomers&#xa;SCD Type 1" vertex="1">
+          <mxGeometry height="60" width="140" x="293" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="gld2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffd700;strokeColor=#b8860b;fontColor=#000000;" value="Gold - DimProducts&#xa;SCD Type 2 CDC" vertex="1">
+          <mxGeometry height="60" width="140" x="293" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="gld3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffd700;strokeColor=#b8860b;fontColor=#000000;" value="Gold - FactOrders&#xa;Star Schema" vertex="1">
+          <mxGeometry height="60" width="140" x="613" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="src" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="brz" value="Ingest">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="brz" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="slv" value="Transform">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="273" y="340" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="slv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="gld1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="slv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;" target="gld2" value="">
+          <mxGeometry relative="1" x="0.0009" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="slv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;" target="gld3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="gld1" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" target="gld3" value="Dim Key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="gld2" style="edgeStyle=orthogonalEdgeStyle;dashed=1;" target="gld3" value="Dim Key">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

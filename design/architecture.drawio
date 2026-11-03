@@ -1,0 +1,37 @@
+<mxfile host="Electron">
+  <diagram id="2XZ76gqx3Rlp_tdJ342E" name="Page-1">
+    <mxGraphModel dx="1166" dy="749" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="slv" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Silver Products&#xa;(Full Overwrite)" vertex="1">
+          <mxGeometry height="60" width="140" x="25" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="snap" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DimProducts_snapshot&#xa;Streaming Table (CDC ON)" vertex="1">
+          <mxGeometry height="60" width="160" x="165" y="170" as="geometry" />
+        </mxCell>
+        <mxCell id="view" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DimProducts_snapshot_changes&#xa;Temp View" vertex="1">
+          <mxGeometry height="60" width="180" x="325" y="300" as="geometry" />
+        </mxCell>
+        <mxCell id="stg" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DimProducts_stage&#xa;Streaming Table (Auto CDC)" vertex="1">
+          <mxGeometry height="60" width="180" x="505" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="fin" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Gold DimProducts&#xa;(SCD Type 2, __START_AT)" vertex="1">
+          <mxGeometry height="60" width="160" x="665" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="slv" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="snap" value="Snapshot CDC">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="snap" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="view" value="Streams CDF&#xa;(excluding preimage)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="view" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="stg" value="Applies deletes&#xa;&amp; expectations">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="stg" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="fin" value="Snapshot CDC&#xa;to SCD 2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

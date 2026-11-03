@@ -1,0 +1,40 @@
+<mxfile host="Electron">
+  <diagram id="6na8HRiJftyd6zi5y-NH" name="Page-1">
+    <mxGraphModel dx="816" dy="524" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="adls" parent="1" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="ADLS Gen2 Storage&#xa;(source, bronze, silver, gold)" vertex="1">
+          <mxGeometry height="80" width="160" x="35" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="iam" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Azure Entra ID&#xa;Storage Blob Contributor&#xa;Managed Identity" vertex="1">
+          <mxGeometry height="60" width="160" x="30" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="conn" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Azure Databricks Connector" vertex="1">
+          <mxGeometry height="60" width="160" x="350" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="ws" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Databricks Workspace&#xa;Project2" vertex="1">
+          <mxGeometry height="60" width="160" x="660" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="uc" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="Unity Catalog&#xa;External Storage Credentials&#xa;External Locations" vertex="1">
+          <mxGeometry height="80" width="160" x="665" y="370" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="iam" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="adls" value="Grants Access">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" source="conn" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="iam" value="Assumes Identity">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="ws" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="conn" value="Uses Connector">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="uc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="conn" value="Binds Credentials">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="uc" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="adls" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
