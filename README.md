@@ -4,6 +4,7 @@ End-To-End_Pipeline is a Lakeflow Job. It moves raw e-commerce data (orders, pro
 *  DimCustomers: customer dimension (SCD Type 1, with a surrogate key)
 *  DimProducts: product dimension (SCD Type 2, built by a Lakeflow Spark Declarative Pipeline)
 *  FactOrders: order fact table linked to both dimensions
+
 | Item | Value |
 | ------ | ------ |
 | Job ID | 642276223292130 |
@@ -44,14 +45,18 @@ ADLS silver/{dataset}                    (Delta, overwrite)  -> databrick_projec
 *   **Schema Syncing:** Schemas in the `databrick_project2` catalog are synced directly to these external locations during creation.
 
 #### Task graph
+
 <table>
   <tr>
     <th align="center">Task Graph Architecture</th>
+    <th align="center">Task Timeline Architecture</th>
   </tr>
   <tr>
-    <td align="center"><img src="images/task_graph.png" width="800" alt="Task Graph"></td>
+    <td align="center"><img src="images/task_graph.png" width="300" alt="Task Graph"></td>
+    <td align="center"><img src="images/task_timeline.png" width="300" alt="Task Timeline"></td>
   </tr>
 </table>
+
 
 ```
 Parameters
@@ -61,6 +66,7 @@ Parameters
           +-- silver_products ---+-- gold_dim_products ---+-- fact_orders
 
 ```
+
 | # | Task key | Type | Source | Depends on |
 | ------ | ------ | ------ | ------ | ------ |
 | 1 | Parameters | Notebook | parameters | none |
@@ -140,6 +146,7 @@ The extra snapshot table exists because expectations aren't supported on a snaps
 *   **Output columns:**  order_id, order_date, quantity, total_amount, year, dim_cust_key, dim_prod_key.
 
 #### Data objects
+
 <table>
   <tr>
     <th align="center">ADLS Containers</th>
@@ -148,12 +155,15 @@ The extra snapshot table exists because expectations aren't supported on a snaps
     <td align="center"><img src="images/adls_containers.png" width="400" alt="ADLS Containers"></td>
   </tr>
 </table>
+
 <table>
   <tr>
     <th align="center">Bronze & Gold Schemas</th>
+    <th align="center">Silver Schema</th>
   </tr>
   <tr>
-    <td align="center"><img src="images/bronze_gold_schemas.png" width="400" alt="Bronze and Gold Schemas"></td>
+    <td align="center"><img src="images/catalog_1.png" width="300" alt="Bronze and Gold Schemas"></td>
+    <td align="center"><img src="images/catalog_2.png" width="300" alt="Silver Schema"></td>
   </tr>
 </table>
 
@@ -168,6 +178,7 @@ The extra snapshot table exists because expectations aren't supported on a snaps
 | UC function | bronze.discount_func(double) | SQL UDF |
 
 #### Running the job
+
 ```bash
 # Full run
 databricks jobs run-now 642276223292130
